@@ -1,0 +1,196 @@
+.body {
+    padding: 150rpx 0 0 50rpx;
+}
+
+.title, .option-item, .result {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 50rpx;
+}
+
+.option-item {
+    margin-bottom: 30rpx;
+}
+
+input {
+    border: 1rpx solid #999;
+    margin-left: 20rpx;
+    border-radius: 20rpx;
+    height: 70rpx;
+    width: 70%;
+    padding: 10rpx;
+    box-sizing: border-box;
+}
+
+.btn {
+    margin-top: 100rpx;
+}
+
+.container {
+    padding: 20rpx;
+}
+
+.form {
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.form-item {
+    margin-bottom: 30rpx;
+}
+
+.form-item text {
+    display: block;
+    font-size: 28rpx;
+    color: #333;
+    margin-bottom: 10rpx;
+}
+
+.form-item input {
+    width: 100%;
+    height: 80rpx;
+    border: 2rpx solid #e0e0e0;
+    border-radius: 12rpx;
+    padding: 0 20rpx;
+    font-size: 28rpx;
+    background: #f8f8f8;
+    box-sizing: border-box;
+}
+
+.form-item input:focus {
+    border-color: #07c160;
+    background: #fff;
+}
+
+.question-list {
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+}
+
+.question-list .title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+}
+
+.question-item {
+    padding: 20rpx 0;
+    border-bottom: 2rpx solid #f0f0f0;
+}
+
+.question-title {
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 16rpx;
+}
+
+.question-options {
+    font-size: 28rpx;
+    color: #666;
+    margin-bottom: 16rpx;
+}
+
+.question-options view {
+    margin-bottom: 8rpx;
+}
+
+.question-answer {
+    font-size: 28rpx;
+    color: #07c160;
+}
+
+.delete-btn {
+    color: #ff4444;
+    font-size: 26rpx;
+    padding: 10rpx 20rpx;
+    border: 2rpx solid #ff4444;
+    border-radius: 8rpx;
+    margin-top: 16rpx;
+    display: inline-block;
+}
+
+.buttons {
+    margin-top: 40rpx;
+}
+
+button {
+    margin-bottom: 20rpx;
+}
+
+.import-btn {
+    background: #f0f0f0;
+    color: #666;
+}
+
+/* 新增样式 */
+.type-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20rpx;
+    margin: 20rpx 0;
+    padding: 20rpx;
+}
+
+.type-btn {
+    padding: 20rpx 40rpx;
+    border-radius: 12rpx;
+    background: #f5f5f5;
+    color: #666;
+    font-size: 28rpx;
+    transition: all 0.3s ease;
+}
+
+.type-btn.active {
+    background: #07c160;
+    color: #fff;
+}
+
+.question-list {
+    margin-top: 40rpx;
+    padding: 20rpx;
+}
+
+.list-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+    color: #333;
+}
+
+.question-item {
+    padding: 20rpx;
+    border-bottom: 2rpx solid #eee;
+}
+
+.question-index {
+    color: #999;
+}
+
+.question-type {
+    color: #07c160;
+    margin-right: 10rpx;
+}
+
+.question-title {
+    color: #333;
+}
+
+/* 添加删除按钮样式 */
+button[type="warn"] {
+    background: #ff4444;
+    color: #fff;
+}
+
+button[type="warn"]:active {
+    opacity: 0.8;
+}

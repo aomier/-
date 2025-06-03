@@ -1,0 +1,56 @@
+<view class="container">
+    <!-- 录入表单 -->
+    <view class="form">
+        <view class="form-item">
+            <text>题目：</text>
+            <input value="{{title}}" bindinput="getTitle" placeholder="请输入题目"/>
+        </view>
+        
+        <view class="form-item">
+            <text>选项A：</text>
+            <input value="{{optionA}}" bindinput="getOption" data-option="A" placeholder="请输入选项A"/>
+        </view>
+        
+        <view class="form-item">
+            <text>选项B：</text>
+            <input value="{{optionB}}" bindinput="getOption" data-option="B" placeholder="请输入选项B"/>
+        </view>
+
+        <view class="form-item">
+            <text>选项C：</text>
+            <input value="{{optionC}}" bindinput="getOption" data-option="C" placeholder="请输入选项C"/>
+        </view>
+
+        <view class="form-item">
+            <text>选项D：</text>
+            <input value="{{optionD}}" bindinput="getOption" data-option="D" placeholder="请输入选项D"/>
+        </view>
+        
+        <view class="form-item">
+            <text>正确答案：</text>
+            <input value="{{result}}" bindinput="getResult" placeholder="请输入正确答案(A/B/C/D)"/>
+        </view>
+
+        <button type="primary" bindtap="submit">添加题目</button>
+        <button type="default" bindtap="batchImportQuestions" style="margin-top: 20rpx;">批量导入题目</button>
+        <button type="warn" bindtap="deleteAllQuestions" style="margin-top: 20rpx;">删除所有题目</button>
+    </view>
+
+    <!-- 题库列表 -->
+    <view class="question-list">
+        <view class="title">题库列表（共{{questions.length}}题）</view>
+        <view class="question-item" wx:for="{{questions}}" wx:key="id">
+            <view class="question-content">
+                <view class="question-title">{{index + 1}}. {{item.title}}</view>
+                <view class="question-options">
+                    <view>A. {{item.option[0]}}</view>
+                    <view>B. {{item.option[1]}}</view>
+                    <view>C. {{item.option[2]}}</view>
+                    <view>D. {{item.option[3]}}</view>
+                </view>
+                <view class="question-answer">正确答案：{{item.answer}}</view>
+            </view>
+            <view class="delete-btn" bindtap="deleteQuestion" data-id="{{item.id}}">删除</view>
+        </view>
+    </view>
+</view>

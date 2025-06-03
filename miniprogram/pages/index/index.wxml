@@ -1,0 +1,76 @@
+<view class="page-container">
+  <!-- 欢迎屏幕 -->
+  <view class="welcome-screen {{!showWelcome ? 'hidden' : ''}}" wx:if="{{showWelcome}}">
+    <view class="welcome-logo">🎯</view>
+    <view class="welcome-text">物理答题助手</view>
+    <view class="welcome-subtitle">让学习更有趣</view>
+  </view>
+
+  <!-- 背景图片 -->
+  <view class="bg-wrapper">
+    <image 
+      class="bg-image" 
+      src="{{bgImage}}" 
+      mode="aspectFill"
+      binderror="onImageError"
+      bindload="onImageLoad"
+    />
+    <view class="bg-overlay"></view>
+    
+    <!-- 浮动粒子效果 -->
+    <view class="particles">
+      <view class="particle"></view>
+      <view class="particle"></view>
+      <view class="particle"></view>
+      <view class="particle"></view>
+      <view class="particle"></view>
+    </view>
+  </view>
+
+  <!-- 主内容 -->
+  <view class="main-content">
+    <!-- 头部区域 -->
+    <view class="header glass-effect">
+      <view class="app-title">物理答题小程序</view>
+      <view class="app-subtitle">智能学习，轻松掌握</view>
+    </view>
+
+    <!-- 登录区域 -->
+    <view class="login-container" wx:if="{{!userInfo}}">
+      <button class="login-btn" bindtap="onLoginClick">
+        点击登录
+      </button>
+    </view>
+
+    <!-- 用户信息区域优化 -->
+    <view class="user-section" wx:if="{{userInfo}}">
+      <view class="user-info glass-effect">
+        <image class="user-avatar" src="{{userInfo.avatarUrl}}" />
+        <view class="user-details">
+          <view class="user-name">{{userInfo.nickName}}</view>
+          <view class="user-status">已登录 · 准备开始答题</view>
+        </view>
+        <view class="user-score">
+          <text class="score-label">总积分</text>
+          <text class="score-value">{{totalScore || 0}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 功能菜单 -->
+    <view class="menu-grid">
+      <view 
+        class="menu-item glass-effect" 
+        wx:for="{{menuItems}}" 
+        wx:key="action"
+        bindtap="onMenuClick"
+        data-action="{{item.action}}"
+        style="--menu-color: {{item.color}}"
+      >
+        <view class="menu-icon">{{item.icon}}</view>
+        <view class="menu-text">{{item.text}}</view>
+        <view class="menu-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,127 @@
+<view class="container">
+  <!-- 进度区域 -->
+  <view class="progress-section glass-effect">
+    <view class="progress-header">
+      <view class="question-number">
+        第{{answerNow + 1}}题 / 共{{list.length}}题
+      </view>
+      <view class="timer {{timeLeft <= 10 ? 'warning' : ''}}">
+        <text class="timer-icon">⏰</text>
+        <text class="timer-text">{{timeLeft}}s</text>
+      </view>
+    </view>
+    
+    <view class="progress-bar">
+      <view 
+        class="progress-fill" 
+        style="width: {{(answerNow / list.length) * 100}}%"
+      ></view>
+    </view>
+    
+    <view class="score-info">
+      <view class="score-item">
+        <text class="score-label">总分</text>
+        <text class="score-number">{{totalScore}}</text>
+      </view>
+      <view class="score-item success">
+        <text class="score-label">正确</text>
+        <text class="score-number">{{successNum}}</text>
+      </view>
+      <view class="score-item error">
+        <text class="score-label">错误</text>
+        <text class="score-number">{{failNum}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 题目区域 -->
+  <view class="question-section glass-effect {{animationClass}}">
+    <view class="question-header">
+      <view class="question-type-badge {{currentType === 'choice' ? 'choice-type' : 'blank-type'}}">
+        {{currentType === 'choice' ? '选择题' : '填空题'}}
+      </view>
+    </view>
+    
+    <view class="question-title">
+      {{list[answerNow].title}}
+    </view>
+
+    <!-- 选择题 -->
+    <view wx:if="{{currentType === 'choice'}}" class="options-container">
+      <radio-group bindchange="radioChange" class="options-list">
+        <label 
+          wx:for="{{list[answerNow].option}}" 
+          wx:key="*this"
+          class="option-item {{select === item ? 'selected' : ''}} {{showResult && item === correctAnswer ? 'correct' : ''}} {{showResult && select === item && item !== correctAnswer ? 'incorrect' : ''}}"
+        >
+          <radio value="{{item}}" checked="{{select === item}}" class="option-radio" />
+          <view class="option-content">
+            <view class="option-letter">{{index === 0 ? 'A' : index === 1 ? 'B' : index === 2 ? 'C' : 'D'}}</view>
+            <view class="option-text">{{item}}</view>
+            <view wx:if="{{showResult && item === correctAnswer}}" class="correct-icon">✓</view>
+            <view wx:if="{{showResult && select === item && item !== correctAnswer}}" class="incorrect-icon">✗</view>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+
+    <!-- 填空题 -->
+    <view wx:else class="input-container">
+      <view class="input-wrapper">
+        <input 
+          class="answer-input {{showResult && inputAnswer !== correctAnswer ? 'incorrect' : ''}}"
+          placeholder="请输入答案..."
+          value="{{inputAnswer}}"
+          bindinput="inputChange"
+          focus="{{currentType === 'blank' && !isAnswered}}"
+          disabled="{{isAnswered}}"
+        />
+        <view wx:if="{{showResult && inputAnswer === correctAnswer}}" class="input-correct-icon">✓</view>
+        <view wx:if="{{showResult && inputAnswer !== correctAnswer}}" class="input-incorrect-icon">✗</view>
+      </view>
+      
+      <!-- 填空题正确答案显示 -->
+      <view wx:if="{{showResult && inputAnswer !== correctAnswer}}" class="correct-answer-display">
+        正确答案：{{correctAnswer}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 结果显示区域 -->
+  <view wx:if="{{showResult}}" class="result-section glass-effect {{status.includes('正确') ? 'result-success' : 'result-error'}}">
+    <view class="result-text">{{status}}</view>
+    
+    <!-- 解析区域 -->
+    <view wx:if="{{showExplanation}}" class="explanation-section">
+      <view class="explanation-title">💡 题目解析</view>
+      <view class="explanation-content">{{currentExplanation}}</view>
+      
+      <!-- 继续按钮区域 -->
+      <view class="continue-section">
+        <button class="continue-btn" bindtap="continueNext">
+          <view class="btn-content">
+            <text class="btn-icon">➡️</text>
+            <text class="btn-text">继续下一题</text>
+          </view>
+        </button>
+        <!-- 答错时显示自动提示，答对时显示手动提示 -->
+        <view wx:if="{{!status.includes('正确')}}" class="auto-tip">4秒后自动进入下一题</view>
+        <view wx:else class="auto-tip">1.5秒后自动进入下一题</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-section">
+    <button 
+      class="submit-btn {{isAnswered ? 'disabled' : ''}}" 
+      bindtap="submit"
+      disabled="{{isAnswered || (currentType === 'choice' && !select) || (currentType === 'blank' && !inputAnswer)}}"
+    >
+      <view class="btn-content">
+        <text class="btn-icon">{{answerNow === list.length - 1 ? '🏁' : '📝'}}</text>
+        <text class="btn-text">{{answerNow === list.length - 1 ? '完成答题' : '提交答案'}}</text>
+      </view>
+    </button>
+  </view>
+</view>

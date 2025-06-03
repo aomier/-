@@ -1,0 +1,41 @@
+<view class="container">
+    <!-- 我的成绩 -->
+    <view class="my-score" wx:if="{{myScore}}">
+        <view class="title">我的最佳成绩</view>
+        <view class="user-info">
+            <image class="avatar" src="{{myScore.userInfo.avatarUrl}}"></image>
+            <view class="info">
+                <view class="nickname">{{myScore.userInfo.nickName}}</view>
+                <view class="score">{{myScore.score}}分 (第{{myRank}}名)</view>
+                <view class="detail">答对{{myScore.successNum}}题 答错{{myScore.failNum || 0}}题</view>
+                <view class="date">{{myScore.date}}</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 排行榜 -->
+    <view class="rank-list">
+        <view class="title">排行榜</view>
+        <view class="rank-item" wx:for="{{list}}" wx:key="time">
+            <view class="rank {{index < 3 ? 'top-' + (index + 1) : ''}}">{{index + 1}}</view>
+            <image class="avatar" src="{{item.avatarUrl}}"></image>
+            <view class="info">
+                <view class="nickname">{{item.nickName}}</view>
+                <view class="score">{{item.score}}分</view>
+                <view class="detail">答对{{item.num}}题 答错{{item.failNum || 0}}题</view>
+                <view class="date">{{item.date}}</view>
+            </view>
+        </view>
+
+        <view class="show-more" wx:if="{{!showAll && list.length === 10}}" bindtap="showMore">
+            查看更多 >
+        </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="buttons">
+        <button type="primary" bindtap="goAnswer">再答一次</button>
+        <button type="default" bindtap="goIndex">返回关卡</button>
+        <button type="warn" bindtap="clearRankings">清除排行榜</button>
+    </view>
+</view>
