@@ -1,0 +1,122 @@
+.container {
+    padding: 20rpx;
+}
+
+.my-score {
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+}
+
+.rank-list {
+    background: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0;
+    border-bottom: 2rpx solid #f0f0f0;
+}
+
+.rank-item:last-child {
+    border-bottom: none;
+}
+
+.rank {
+    width: 80rpx;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #666;
+}
+
+.top-1 {
+    color: #f5b800;
+    font-size: 40rpx;
+}
+
+.top-2 {
+    color: #c0c0c0;
+    font-size: 36rpx;
+}
+
+.top-3 {
+    color: #cd7f32;
+    font-size: 34rpx;
+}
+
+.avatar {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 20rpx;
+    border: 2rpx solid #eee;
+}
+
+.info {
+    flex: 1;
+}
+
+.nickname {
+    font-size: 32rpx;
+    color: #333;
+    margin-bottom: 8rpx;
+}
+
+.score {
+    font-size: 30rpx;
+    color: #07c160;
+    font-weight: bold;
+    margin-bottom: 6rpx;
+}
+
+.detail {
+    font-size: 26rpx;
+    color: #666;
+}
+
+.date {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.show-more {
+    text-align: center;
+    padding: 30rpx 0 10rpx;
+    color: #07c160;
+    font-size: 28rpx;
+}
+
+.buttons {
+    padding: 20rpx;
+}
+
+.buttons button {
+    margin-bottom: 20rpx;
+    width: 100%;
+}
+
+button[type="warn"] {
+    margin-top: 40rpx;
+}

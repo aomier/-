@@ -1,0 +1,168 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f6fa;
+  padding: 20rpx;
+}
+
+/* 标题样式 */
+.header {
+  width: 100%;
+  padding: 20rpx 0;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 轮播区域样式 */
+.banner-swiper {
+  width: 92%;
+  height: 220rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+  margin-bottom: 30rpx;
+}
+
+.banner-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16rpx;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+/* 转盘区域样式 */
+.lottery-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20rpx;
+}
+
+.lottery-wheel-container {
+  position: relative;
+  width: 600rpx;
+  height: 600rpx;
+  margin: 0 auto;
+}
+
+.lottery-wheel {
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  border-radius: 50%;
+  box-shadow: 0 8rpx 20rpx rgba(0,0,0,0.15);
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80rpx;
+  height: 80rpx;
+  z-index: 2;
+}
+
+.prize-text {
+  position: absolute;
+  color: #333;
+  font-weight: bold;
+  font-size: 28rpx;
+  text-shadow: 0 2rpx 2rpx rgba(255,255,255,0.8);
+}
+
+.first-prize {
+  top: 40rpx; 
+  left: 50%;
+  transform: translateX(-50%); 
+}
+
+.second-prize {
+  right: 40rpx; 
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.third-prize {
+  bottom: 40rpx; 
+  left: 50%;
+  transform: translateX(-50%); 
+}
+
+.fourth-prize {
+  left: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 按钮样式 */
+.draw-btn {
+  margin-top: 50rpx;
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+  color: white;
+  font-weight: bold;
+  border-radius: 40rpx;
+  box-shadow: 0 8rpx 16rpx rgba(255,107,107,0.3);
+  transition: all 0.3s;
+}
+
+.draw-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 4rpx 8rpx rgba(255,107,107,0.3);
+}
+
+/* 结果显示区域 */
+.result-container {
+  margin-top: 30rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.result-box {
+  background-color: #fff;
+  padding: 20rpx 40rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+.result-text {
+  font-size: 32rpx;
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "weather-api-server",
+  "version": "1.0.0",
+  "description": "天气预报API服务器",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "axios": "^0.21.1"
+  }
+} 

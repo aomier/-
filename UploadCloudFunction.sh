@@ -1,0 +1,1 @@
+"/Applications/wechatwebdevtools.app/Contents/MacOS/cli" cloud functions deploy --e creator-xcq6k --n quickstartFunctions --r --project "/Users/liuguanglei/Desktop/微信小程序/答题小程序" --report_first --report

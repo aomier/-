@@ -1,0 +1,40 @@
+<view class="page-container">  <!-- 顶部标题 -->
+  <view class="header">
+    <text class="title">幸运大转盘</text>
+  </view>
+  
+  <!-- 奖品轮播区域 -->
+  <swiper class="banner-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" circular="{{true}}">
+    <block wx:for="{{bannerImages}}" wx:key="index">
+      <swiper-item>
+        <view class="banner-item">
+          <image src="{{item.src}}" class="banner-image" mode="aspectFill" />
+          <view class="banner-title">{{item.title}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  
+  <!-- 转盘区域 -->
+  <view class="lottery-section">
+    <view class="lottery-wheel-container">
+      <image class="lottery-wheel" src="/images/zhuanpan.png" animation="{{animationData}}"></image>
+      <image class="wheel-pointer" src="/images/pointer.png"></image>
+      <view class="prize-text first-prize">一等奖</view>
+      <view class="prize-text second-prize">二等奖</view>
+      <view class="prize-text third-prize">三等奖</view>
+      <view class="prize-text fourth-prize">四等奖</view>      
+    </view>
+    
+    <button class="draw-btn" bindtap="startLottery" disabled="{{isDrawing}}">
+      <text>{{isDrawing ? '抽奖中...' : '点击抽奖'}}</text>
+    </button>
+    
+    <view class="result-container" wx:if="{{showResult}}">
+      <view class="result-box">
+        <text class="result-text">{{tipText}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+  

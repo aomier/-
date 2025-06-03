@@ -1,0 +1,29 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/level/level",
+        "pages/answer/answer",
+        "pages/enter/enter",
+        "pages/prize/prize",
+        "pages/rank/rank",
+        "pages/musicmv/musicmv"
+    ],
+    "window": {        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTitleText": "物理闯关答题",
+        "navigationBarTextStyle": "black"
+    },
+    "requiredBackgroundModes": ["audio"],
+    "sitemapLocation": "sitemap.json",
+    "style": "v2",
+    "useExtendedLib": {
+        "weui": true
+    },
+    "lazyCodeLoading": "requiredComponents",
+    "permission": {
+        "scope.userLocation": {
+            "desc": "您的位置信息将用于获取当地天气数据"
+        }
+    }
+}

@@ -1,0 +1,81 @@
+<!--pages/musicmv/musicmv.wxml-->
+<view class="container">
+  <!-- 当前天气信息 -->
+  <view class="weather-card">
+    <view class="location-info">
+      <text class="city-name">{{weatherData.city}}</text>
+      <text class="update-time">更新时间: {{weatherData.updateTime}}</text>
+    </view>
+    
+    <view class="current-weather">
+      <image class="weather-icon" src="{{weatherData.iconUrl}}" mode="aspectFit"></image>
+      <view class="temp-info">
+        <text class="temperature">{{weatherData.temperature}}°C</text>
+        <text class="weather-desc">{{weatherData.weatherDesc}}</text>
+      </view>
+    </view>
+    
+    <view class="weather-details">
+      <view class="detail-item">
+        <text class="detail-label">湿度</text>
+        <text class="detail-value">{{weatherData.humidity}}%</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-label">风向</text>
+        <text class="detail-value">{{weatherData.windDirection}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-label">风力</text>
+        <text class="detail-value">{{weatherData.windPower}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="detail-label">气压</text>
+        <text class="detail-value">{{weatherData.pressure}}hPa</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 未来天气预报 -->
+  <view class="forecast-container">
+    <view class="section-title">未来天气预报</view>
+    <scroll-view scroll-x="true" class="forecast-scroll">
+      <view class="forecast-list">
+        <view class="forecast-item" wx:for="{{forecastList}}" wx:key="date">
+          <text class="forecast-date">{{item.date}}</text>
+          <image class="forecast-icon" src="{{item.iconUrl}}" mode="aspectFit"></image>
+          <text class="forecast-temp">{{item.tempMin}}° / {{item.tempMax}}°</text>
+          <text class="forecast-desc">{{item.weatherDesc}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 城市搜索 -->
+  <view class="search-container">
+    <input class="search-input" 
+           placeholder="输入城市名称" 
+           value="{{searchCity}}"
+           bindinput="onSearchInput"
+           confirm-type="search"
+           bindconfirm="searchWeather" />
+    <button class="search-btn" bindtap="searchWeather">搜索</button>
+  </view>
+
+  <!-- 生活指数 -->
+  <view class="indices-container" wx:if="{{lifeIndices.length > 0}}">
+    <view class="section-title">生活指数</view>
+    <view class="indices-list">
+      <view class="index-item" wx:for="{{lifeIndices}}" wx:key="type">
+        <text class="index-name">{{item.name}}</text>
+        <text class="index-level">{{item.level}}</text>
+        <text class="index-desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 加载中提示 -->
+<view class="loading-container" wx:if="{{isLoading}}">
+  <view class="loading-spinner"></view>
+  <text class="loading-text">加载中...</text>
+</view>

@@ -1,0 +1,389 @@
+.media-list {
+    width: 100%;
+  }
+  .media-item {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #f5f5f5;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .type {
+    color: #666;
+    font-size: 14px;
+  }
+  .upload-btn {
+    margin: 20px;
+  }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.mv-player {
+  width: 100%;
+  height: 420rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+}
+
+.music-list {
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1);
+}
+
+.list-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #eee;
+}
+
+.music-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  transition: all 0.3s;
+}
+
+.music-item:last-child {
+  border-bottom: none;
+}
+
+.music-item.playing {
+  background: #f0f9ff;
+}
+
+.music-cover {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.music-info {
+  flex: 1;
+}
+
+.music-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.music-artist {
+  font-size: 24rpx;
+  color: #999;
+  display: block;
+}
+
+.music-status {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 播放/暂停图标 */
+.play-icon {
+  width: 36rpx;
+  height: 36rpx;
+  position: relative;
+}
+
+.play-icon.play:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: 18rpx solid transparent;
+  border-bottom: 18rpx solid transparent;
+  border-left: 36rpx solid #4a90e2;
+  border-right: 0;
+}
+
+.play-icon.pause:before, .play-icon.pause:after {
+  content: '';
+  position: absolute;
+  width: 12rpx;
+  height: 36rpx;
+  background-color: #4a90e2;
+}
+
+.play-icon.pause:before {
+  left: 6rpx;
+}
+
+.play-icon.pause:after {
+  right: 6rpx;
+}
+
+/* 当前天气卡片 */
+.weather-card {
+  width: 100%;
+  background: linear-gradient(135deg, #4a90e2, #6fa3ef);
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+  color: white;
+  margin-bottom: 30rpx;
+}
+
+.location-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.city-name {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+.update-time {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+.current-weather {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.weather-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 30rpx;
+}
+
+.temp-info {
+  flex: 1;
+}
+
+.temperature {
+  font-size: 72rpx;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.weather-desc {
+  font-size: 32rpx;
+  opacity: 0.9;
+}
+
+.weather-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.2);
+  padding-top: 20rpx;
+}
+
+.detail-item {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.detail-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-bottom: 6rpx;
+}
+
+.detail-value {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+/* 未来天气预报 */
+.forecast-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.forecast-scroll {
+  width: 100%;
+}
+
+.forecast-list {
+  display: flex;
+  padding: 10rpx 0;
+}
+
+.forecast-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20rpx;
+  min-width: 160rpx;
+}
+
+.forecast-date {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.forecast-icon {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 10rpx 0;
+}
+
+.forecast-temp {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.forecast-desc {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 搜索区域 */
+.search-container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 30rpx;
+}
+
+.search-input {
+  flex: 1;
+  height: 80rpx;
+  background-color: white;
+  border-radius: 40rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.search-btn {
+  width: 160rpx;
+  height: 80rpx;
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 40rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* 生活指数 */
+.indices-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+  margin-bottom: 30rpx;
+}
+
+.indices-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.index-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.index-item:last-child {
+  border-bottom: none;
+}
+
+.index-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.index-level {
+  font-size: 24rpx;
+  color: #4a90e2;
+  font-weight: 500;
+  margin-bottom: 6rpx;
+}
+
+.index-desc {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 1.5;
+}
+
+/* 加载中效果 */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.loading-spinner {
+  width: 80rpx;
+  height: 80rpx;
+  border: 6rpx solid #f3f3f3;
+  border-top: 6rpx solid #4a90e2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20rpx;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #666;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
